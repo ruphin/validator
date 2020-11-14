@@ -1,0 +1,15 @@
+[Unit]
+Description=Lighthouse Beacon Node
+After=network.target 
+Wants=network.target
+
+[Service]
+User=lighthousebeacon
+Group=lighthousebeacon
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --testnet [network] --http --eth1-endpoint [eth1]
+
+[Install]
+WantedBy=default.target
