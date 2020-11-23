@@ -1,7 +1,7 @@
 #!/bin/bash
+set -e
 
-echo "Enter Lighthouse version (x.y.z)"
-printf "> "
+printf "Enter Lighthouse version (x.y.z)\n> "
 read version
 
 printf "\nChoose architecture\n"

@@ -1,7 +1,7 @@
 #!/bin/bash
+set -e
 
-echo "Enter Dead Man's Snitch key (https://nosnch.in/<key>) or leave empty to skip"
-printf "> "
+printf "Enter Dead Man's Snitch key (https://nosnch.in/<key>) or leave empty to skip\n> "
 read key
 
 if [[ "${key}" != "" ]]; then

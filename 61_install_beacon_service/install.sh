@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -21,6 +22,7 @@ mv "$DIR/beacon.service.tmp" /etc/systemd/system/beacon.service
 
 systemctl daemon-reload
 systemctl start beacon
+systemctl enable beacon
 
 
 
