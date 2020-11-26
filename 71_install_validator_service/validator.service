@@ -1,0 +1,15 @@
+[Unit]
+Description=Lighthouse Validator
+After=network.target 
+Wants=network.target
+
+[Service]
+User=lighthousevalidator
+Group=lighthousevalidator
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/lighthouse validator_client --datadir /var/lib/lighthouse/validator --network [network] [graffiti]
+
+[Install]
+WantedBy=default.target
