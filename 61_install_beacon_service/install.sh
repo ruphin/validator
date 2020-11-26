@@ -7,7 +7,7 @@ cp "${DIR}/beacon.service" "${DIR}/beacon.service.tmp"
 
 printf "\nChoose network\n"
 PS3="> "
-select network in "mainnet" "medalla"; do
+select network in "mainnet" "pyrmont" "medalla"; do
   break
 done
 
@@ -21,6 +21,7 @@ sed -i 's|\[eth1\]|'"${eth1}"'|' "${DIR}/beacon.service.tmp"
 mv "$DIR/beacon.service.tmp" /etc/systemd/system/beacon.service
 
 systemctl daemon-reload
+systemctl stop beacon
 systemctl start beacon
 systemctl enable beacon
 
