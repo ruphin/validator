@@ -22,7 +22,7 @@ sed -i 's|\[eth1\]|'"${eth1}"'|' "${DIR}/beacon.service.tmp"
 printf "\nEnter endpoint for checkpoint sync (https://1234567890abcdef:1234567890abcdef@eth2-beacon-mainnet.infura.io)\nOr leave blank to skip\n> "
 read checkpoint
 
-if [[ "${key}" != "" ]]; then
+if [[ "${checkpoint}" != "" ]]; then
   sed -i 's|\[checkpoint\]|'"--checkpoint-sync-url ${checkpoint}"'|' "${DIR}/beacon.service.tmp"
 else
   sed -i 's|\[checkpoint\]||' "${DIR}/beacon.service.tmp"
