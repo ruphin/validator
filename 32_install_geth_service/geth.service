@@ -9,7 +9,7 @@ Group=geth
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/geth --datadir /var/lib/geth --metrics --pprof
+ExecStart=/usr/bin/geth --datadir /var/lib/geth --metrics --pprof
 
 [Install]
 WantedBy=default.target
