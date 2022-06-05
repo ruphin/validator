@@ -9,6 +9,7 @@ Group=geth
 Type=simple
 Restart=always
 RestartSec=5
+TimeoutStopSec=180
 ExecStart=/usr/bin/geth --datadir /var/lib/geth --metrics --pprof
 
 [Install]
