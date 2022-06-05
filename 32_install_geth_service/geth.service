@@ -1,0 +1,15 @@
+[Unit]
+Description=Ethereum Execution Client
+After=network.target 
+Wants=network.target
+
+[Service]
+User=geth
+Group=geth
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/geth --datadir /var/lib/geth --metrics --pprof
+
+[Install]
+WantedBy=default.target

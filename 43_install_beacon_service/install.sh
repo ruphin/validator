@@ -18,20 +18,19 @@ read eth1
 
 sed -i 's|\[eth1\]|'"${eth1}"'|' "${DIR}/beacon.service.tmp"
 
+
+printf "\nEnter endpoint for checkpoint sync (https://1234567890abcdef:1234567890abcdef@eth2-beacon-mainnet.infura.io)\nOr leave blank to skip\n> "
+read checkpoint
+
+if [[ "${key}" != "" ]]; then
+  sed -i 's|\[checkpoint\]|'"--checkpoint-sync-url ${checkpoint}"'|' "${DIR}/beacon.service.tmp"
+else
+  sed -i 's|\[checkpoint\]||' "${DIR}/beacon.service.tmp"
+fi
+
 mv "$DIR/beacon.service.tmp" /etc/systemd/system/beacon.service
 
 systemctl daemon-reload
 systemctl stop beacon
 systemctl start beacon
 systemctl enable beacon
-
-
-
-# printf "\nEnter a graffiti (leave blank for no graffiti)\n> "
-# read graffiti
-
-# if [[ ${graffiti} == "" ]]; then
-#   sed -i "s/\[graffiti\]//" "${DIR}/beacon.service.tmp"
-# else
-#   sed -i "s/\[graffiti\]/--graffiti ${graffiti}/" "${DIR}/beacon.service.tmp"
-# fi
