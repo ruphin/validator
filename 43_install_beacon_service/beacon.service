@@ -9,7 +9,7 @@ Group=lighthousebeacon
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --network [network] --http --eth1-endpoint [eth1] [checkpoint]
+ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --network [network] --http --eth1-endpoints http://localhost:8545,[eth1] [checkpoint]
 
 [Install]
 WantedBy=default.target
