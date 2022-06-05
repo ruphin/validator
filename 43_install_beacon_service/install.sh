@@ -16,7 +16,7 @@ sed -i "s/\[network\]/${network}/" "${DIR}/beacon.service.tmp"
 printf "\nEnter backup eth1 endpoint (https://mainnet.infura.io/v3/1234567890abcdef1234567890abcdef)\nOr leave blank to use only local\n> "
 read eth1
 
-sed -i 's|\[eth1\]|'"${eth1}"'|' "${DIR}/beacon.service.tmp"
+sed -i 's|\[eth1\]|'",${eth1}"'|' "${DIR}/beacon.service.tmp"
 
 
 printf "\nEnter endpoint for checkpoint sync (https://1234567890abcdef:1234567890abcdef@eth2-beacon-mainnet.infura.io)\nOr leave blank to skip\n> "
