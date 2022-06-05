@@ -1,7 +1,7 @@
 [Unit]
 Description=Lighthouse Validator
-After=network.target 
-Wants=network.target
+BindsTo=beacon.service
+After=beacon.service
 
 [Service]
 User=lighthousevalidator
@@ -12,4 +12,4 @@ RestartSec=5
 ExecStart=/usr/local/bin/lighthouse validator_client --datadir /var/lib/lighthouse/validator --network [network] [graffiti]
 
 [Install]
-WantedBy=default.target
+WantedBy=beacon.service

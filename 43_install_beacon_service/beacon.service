@@ -1,7 +1,7 @@
 [Unit]
 Description=Lighthouse Beacon Node
-After=network.target 
-Wants=network.target
+BindsTo=geth.service
+After=geth.service
 
 [Service]
 User=lighthousebeacon
@@ -9,7 +9,7 @@ Group=lighthousebeacon
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --network [network] --http --eth1-endpoints http://localhost:8545,[eth1] [checkpoint]
+ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --jwt-secrets /var/lib/geth/jwt --network [network] --http --metrics --execution-endpoints http://localhost:8551 --eth1-endpoints http://localhost:8545,[eth1] [checkpoint]
 
 [Install]
-WantedBy=default.target
+WantedBy=geth.service

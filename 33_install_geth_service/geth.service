@@ -10,7 +10,7 @@ Type=simple
 Restart=always
 RestartSec=5
 TimeoutStopSec=180
-ExecStart=/usr/bin/geth --datadir /var/lib/geth --metrics --pprof
+ExecStart=/usr/bin/geth --datadir /var/lib/geth --metrics --http --ws --authrpc.jwtsecret /var/lib/geth/jwt 
 
 [Install]
 WantedBy=default.target
