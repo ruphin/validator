@@ -1,0 +1,15 @@
+[Unit]
+Description=Node Exporter
+After=network.target 
+Wants=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=default.target
