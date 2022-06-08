@@ -10,5 +10,5 @@ select arch in "x86_64" "aarch64"; do
   break
 done
 
-rm -rf /tmp/lighthouse*
-curl -L "https://github.com/sigp/lighthouse/releases/download/v${version}/lighthouse-v${version}-${arch}-unknown-linux-gnu.tar.gz" | tar xz -C /tmp/
+curl -L "https://github.com/sigp/lighthouse/releases/download/v${version}/lighthouse-v${version}-${arch}-unknown-linux-gnu.tar.gz" \
+  | tar xz -C /tmp/
