@@ -1,5 +1,5 @@
 [Unit]
-Description=Node Exporter
+Description=Ethereum Metrics Exporter
 After=network.target
 Wants=network.target
 
@@ -9,7 +9,7 @@ Group=prometheus_exporter
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/node_exporter --web.listen-address="localhost:9100"
+ExecStart=/usr/local/bin/ethereum_metrics_exporter
 
 [Install]
 WantedBy=default.target

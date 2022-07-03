@@ -1,7 +1,7 @@
 [Unit]
 Description=Lighthouse Beacon Node
-BindsTo=geth.service
 After=geth.service
+Wants=geth.service
 
 [Service]
 User=lighthousebeacon
