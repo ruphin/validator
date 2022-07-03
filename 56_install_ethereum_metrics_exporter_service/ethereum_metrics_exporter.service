@@ -9,7 +9,7 @@ Group=prometheus_exporter
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/ethereum_metrics_exporter
+ExecStart=/usr/local/bin/ethereum-metrics-exporter --consensus-url=http://localhost:5052 --execution-url=http://localhost:8545
 
 [Install]
 WantedBy=default.target
