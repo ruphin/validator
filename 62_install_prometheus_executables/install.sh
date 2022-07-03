@@ -11,6 +11,4 @@ mv /tmp/consoles/* /etc/prometheus/consoles/
 mkdir -p /etc/prometheus/console_libraries
 mv /tmp/console_libraries/* /etc/prometheus/console_libraries/
 
-cp "${DIR}/prometheus.yml" /etc/prometheus/
-
 chown -R prometheus:prometheus /etc/prometheus
