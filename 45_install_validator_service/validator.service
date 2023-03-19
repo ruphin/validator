@@ -9,7 +9,7 @@ Group=lighthousevalidator
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/lighthouse validator_client --datadir /var/lib/lighthouse/validator --network [network] [graffiti]
+ExecStart=/usr/local/bin/lighthouse validator_client --datadir /var/lib/lighthouse/validator --builder-proposals --network [network] [graffiti]
 
 [Install]
 WantedBy=beacon.service

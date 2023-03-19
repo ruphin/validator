@@ -9,7 +9,7 @@ Group=lighthousebeacon
 Type=simple
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --jwt-secrets /var/lib/geth/jwt --network [network] --http --metrics --validator-monitor-auto --execution-endpoints http://localhost:8551 --eth1-endpoints http://localhost:8545[eth1] [checkpoint]
+ExecStart=/usr/local/bin/lighthouse beacon_node --datadir /var/lib/lighthouse/beacon-node --jwt-secrets /var/lib/geth/jwt --network [network] --http --metrics --validator-monitor-auto --builder http://localhost:18550 --execution-endpoints http://localhost:8551 --eth1-endpoints http://localhost:8545[eth1] [checkpoint]
 
 [Install]
 WantedBy=geth.service
