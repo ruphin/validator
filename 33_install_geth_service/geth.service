@@ -9,8 +9,8 @@ Group=geth
 Type=simple
 Restart=always
 RestartSec=5
-TimeoutStopSec=180
-ExecStart=/usr/bin/geth --datadir /var/lib/geth --metrics --metrics.expensive --pprof --http --ws --authrpc.jwtsecret /var/lib/geth/jwt --authrpc.addr localhost --authrpc.port 8551
+TimeoutStopSec=900
+ExecStart=/usr/bin/geth --datadir /var/lib/geth --state.scheme=path --metrics --pprof --http --ws --authrpc.jwtsecret /var/lib/geth/jwt --authrpc.addr localhost --authrpc.port 8551
 
 [Install]
 WantedBy=default.target

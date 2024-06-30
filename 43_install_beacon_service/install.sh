@@ -13,14 +13,12 @@ done
 
 sed -i "s/\[network\]/${network}/" "${DIR}/beacon.service.tmp"
 
-printf "\nEnter endpoint for checkpoint sync (https://1234567890abcdef:1234567890abcdef@eth2-beacon-mainnet.infura.io)\nOr leave blank to skip\n> "
+DEFAULT_CHECKPOINT_SYNC_URL="https://sync-mainnet.beaconcha.in"
+printf "\nEnter endpoint for checkpoint sync [https://sync-mainnet.beaconcha.in]\n> "
 read checkpoint
+checkpoint=${checkpoint:-$DEFAULT_CHECKPOINT_SYNC_URL}
 
-if [[ "${checkpoint}" != "" ]]; then
-  sed -i 's|\[checkpoint\]|'"--checkpoint-sync-url ${checkpoint}"'|' "${DIR}/beacon.service.tmp"
-else
-  sed -i 's|\[checkpoint\]||' "${DIR}/beacon.service.tmp"
-fi
+sed -i 's|\[checkpoint\]|'"${checkpoint}"'|' "${DIR}/beacon.service.tmp"
 
 mv "$DIR/beacon.service.tmp" /etc/systemd/system/beacon.service
 
